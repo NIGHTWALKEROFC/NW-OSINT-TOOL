@@ -1,0 +1,18 @@
+# Logs and reports (personal data, don't push to GitHub)
+~/.nw_osint/
+logs/
+reports/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+
+# Temp files
+*.tmp
+*.bak
