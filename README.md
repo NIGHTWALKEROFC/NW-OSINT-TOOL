@@ -28,17 +28,28 @@ by <b>NIGHTWALKER</b></p>
 
 ## What it does
 
-| Module | Description |
-|--------|-------------|
-| 🔍 Username OSINT | Hunt a username across 20+ platforms |
-| 🌐 IP Address OSINT | Geolocate, ISP, proxy/VPN detection |
-| 🏠 Domain OSINT | WHOIS, DNS, subdomains, headers, robots.txt |
-| 📧 Email OSINT | Breach check, Gravatar, MX lookup |
-| 📱 Phone OSINT | Country, carrier, WhatsApp/Telegram check |
-| 📡 Network OSINT | Your IP, DNS leak test, speed, open ports |
-| 🔎 Google Dorking | Auto-generate dork queries |
-| 🛠️ Web Fingerprint | CMS, frameworks, CDN, SSL info |
-| 📂 View Reports | Browse all saved results |
+| # | Module | Description |
+|---|--------|-------------|
+| 01 | 🔍 **Username OSINT** | Search a username across 30+ platforms simultaneously with parallel scanning and progress bar |
+| 02 | 🌐 **IP Address OSINT** | Full geolocation, ISP, ASN info, VPN/proxy detection, AbuseIPDB reputation score |
+| 03 | 🏠 **Domain / Website OSINT** | WHOIS, DNS records, SSL expiry countdown, HTTP redirect check, subdomain scan, headers, robots.txt |
+| 04 | 📧 **Email OSINT** | Breach check, Gravatar lookup, MX validation, social profile cross-check |
+| 05 | 📱 **Phone Number OSINT** | 60+ country detection, E.164 format, carrier links, WhatsApp and Telegram check |
+| 06 | 📡 **Network OSINT** | Public IP, geolocation, DNS leak test, speed test, open local port scan |
+| 07 | 🔎 **Google Dorking** | Auto-generate 19 targeted dork queries with direct Google links |
+| 08 | 🛠️ **Website Fingerprint** | Detect CMS, JS frameworks, CDN, analytics tools, SSL certificate info |
+| 09 | 🕰️ **Wayback Machine** | Check archived snapshots, history links, total crawl count via CDX API |
+| 10 | 🐙 **GitHub OSINT** | Profile info, repos, organizations, gists, follower stats via GitHub API |
+| 11 | 👁️ **Shodan Lookup** | Exposed ports, hostnames, CVEs, service banners — API key saved locally |
+| 12 | 💥 **DNS Brute Force** | 100+ subdomain wordlist scan with parallel resolution and progress bar |
+| 13 | 🔑 **Hash Identifier** | Identify MD5/SHA/bcrypt/crypt hash types, online lookup, generate hashes for comparison |
+| 14 | 📶 **MAC Address Lookup** | Vendor and manufacturer from MAC address, multicast/locally-administered detection |
+| 15 | 🔗 **URL Expander** | Unshorten URLs, trace full redirect chain, suspicious TLD warning, VirusTotal link |
+| 16 | 📡 **Banner Grabber** | Grab service banners from open ports using native bash TCP — no netcat needed |
+| 17 | 📜 **Search History** | Browse and keyword-search all past queries, clear history |
+| 18 | 📂 **View Reports** | Browse and read all saved OSINT reports |
+| 19 | 📦 **Export Reports to ZIP** | Bundle all saved reports into a single zip file |
+| 20 | 🔐 **API Key Manager** | Add, update, or delete Shodan and AbuseIPDB API keys |
 
 ---
 
@@ -51,7 +62,7 @@ pkg update && pkg upgrade -y
 ```
 
 ```bash
-pkg install git curl jq whois dnsutils wget openssl-tool python -y
+pkg install git curl jq whois dnsutils wget openssl-tool python zip -y
 ```
 
 ```bash
@@ -71,7 +82,7 @@ chmod +x nw_osint.sh && bash nw_osint.sh
 ## One liner
 
 ```bash
-pkg update -y && pkg install git curl jq whois dnsutils wget openssl-tool python -y && git clone https://github.com/NIGHTWALKEROFC/nw-osint-tool.git && cd nw-osint-tool && chmod +x nw_osint.sh && bash nw_osint.sh
+pkg update -y && pkg install git curl jq whois dnsutils wget openssl-tool python zip -y && git clone https://github.com/NIGHTWALKEROFC/nw-osint-tool.git && cd nw-osint-tool && chmod +x nw_osint.sh && bash nw_osint.sh
 ```
 
 ---
@@ -84,12 +95,31 @@ cd nw-osint-tool && git pull
 
 ---
 
+## API Keys
+
+Some modules work better with free API keys. The tool will prompt you when needed, verify the key, and save it locally — never shared or uploaded anywhere.
+
+| Service | Module | Get Free Key |
+|---------|--------|-------------|
+| Shodan | Module 11 | https://account.shodan.io/register |
+| AbuseIPDB | Module 02 | https://www.abuseipdb.com/register |
+
+Keys are managed from **Module 20 — API Key Manager**.
+
+---
+
 ## Reports
 
-Everything gets saved locally on your device under `~/.nw_osint/reports/` — nothing is sent anywhere. You can browse them from Module 09 inside the tool or read them directly:
+Everything gets saved locally on your device under `~/.nw_osint/reports/` — nothing sent anywhere. Browse them from Module 18 or read directly:
 
 ```bash
 ls ~/.nw_osint/reports/
+```
+
+Export all reports as a zip from Module 19, or run:
+
+```bash
+zip -j ~/reports.zip ~/.nw_osint/reports/*
 ```
 
 ---
@@ -102,8 +132,8 @@ ls ~/.nw_osint/reports/
   ║                                      ║
   ║   Author   :  NIGHTWALKER            ║
   ║   GitHub   :  NIGHTWALKEROFC         ║
+  ║   Purpose  :  Ethical OSINT          ║
   ║   Platform :  Termux (Android)       ║
-  ║   Version  :  1.0                   ║
   ╚══════════════════════════════════════╝
 ```
 
